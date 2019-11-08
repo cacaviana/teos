@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Meu Aplicativo ASP.NET</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+
+
+    <nav class="navbar navbar-expand-md navbar-light bg-dark">
+
+        @if (!User.Identity.IsAuthenticated)
+        {
+
+            <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                    @Html.ActionLink("IRVC", "Login", new { controller = "Autenticacao" }, new { @class = "nav-link text-light" })
+                    </li>
+                </ul>
+            </div>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    @Html.ActionLink("Login", "Login", new { controller = "Autenticacao" }, new { @class = "nav-link text-light" })
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink("Cadastre-se", "Cadastrar", new { controller = "Autenticacao" }, new { @class = "nav-link text-light" })
+                </li>
+            </ul>
+
+        }
+        else
+        {
+
+            <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        @Html.ActionLink("IRVC", "Index", "Cursos", new { area = "" }, new { @class = "nav-link text-light" })
+                    </li>
+                    <li class="nav-item dropdown">
+                      
+                        <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Cadastros
+                        </a>
+                        <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+                            @Html.ActionLink("Usuários", "Index", new { controller = "Autenticacao" }, new { @class = "dropdown-item text-light bg-transparent" })
+                            @Html.ActionLink("Cursos", "Index", new { controller = "Cursos" }, new { @class = "dropdown-item text-light bg-transparent" })
+                            @Html.ActionLink("Turmas", "Index", new { controller = "Turmas" }, new { @class = "dropdown-item text-light bg-transparent" })
+                            @Html.ActionLink("Módulos", "Index", new { controller = "Modulos" }, new { @class = "dropdown-item text-light bg-transparent" })
+                            @Html.ActionLink("Conteúdos", "Index", new { controller = "Conteudos" }, new { @class = "dropdown-item text-light bg-transparent" })
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="dropdown bg-dark offset-2 text-right col-md-2">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-light" href="/Autenticacao" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            @User.Identity.Name
+                        </a>
+                        <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+                            @Html.ActionLink("Alterar senha", "AlterarSenha", new { controller = "Autenticacao"}, new { @class = "dropdown-item text-left text-light bg-transparent offset-1" })
+                            @Html.ActionLink("Sair", "Logout", new { controller = "Autenticacao" }, new { @class = "dropdown-item text-left text-light bg-transparent offset-1" })
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        }
+
+
+    </nav>
+
+
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year Copyright - Potenza Treinamentos</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>

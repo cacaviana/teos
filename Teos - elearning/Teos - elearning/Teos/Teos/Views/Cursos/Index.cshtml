@@ -1,0 +1,88 @@
+﻿@model IEnumerable<Teos.Models.Cursos>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+<h4>Cursos</h4> 
+
+<p>
+    <br /> 
+    @Html.ActionLink("Criar novo curso", "Create")
+</p>
+
+
+<div class="container table-hover">
+
+    @foreach (var item in Model)
+    {
+
+        <div class="card" style="width: 18rem;">
+
+            @foreach (var imagem in item.ArquivosCursos)
+            {
+                <img class="card-img-top" src="~/Arquivos/Cursos/@imagem.NomeArquivo" alt="@item.Nome">
+            }
+
+            <div class="card-body" >
+                <h5 class="card-title">@item.Nome</h5>
+                <p class="card-text">@item.Promessa.</p>
+                @Html.ActionLink("Começar", "EntrarCurso", new { id = item.Id }, new { @class = "btn btn-primary" })
+
+            </div>
+        </div>
+
+
+
+
+    }
+
+</div>
+
+<table class="table table-hover table-responsive-sm">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            Logo
+        </th>
+        <th>
+            Página de vendas
+        </th>
+        <th>
+            Certificado
+        </th>
+        <th>
+            Ações
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Promessa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Url_Pg_Vendas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Link_Certificado)
+            </td>
+            <td>
+                @Html.ActionLink("Entrar", "EntrarCurso", new { id = item.Id }) |
+                @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Deletar", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+

@@ -1,0 +1,76 @@
+﻿@model IEnumerable<Teos.Models.Usuarios>
+
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+<h4>Usuários</h4>
+
+<p>
+    @Html.ActionLink("Criar novo usuário", "Cadastrar")
+</p>
+<table class="table table-hover">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SobreNome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Login)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Senha)
+        </th>*@
+
+        <th class="text-black-100">
+            Tipo de Usuário
+        </th>
+        <th>
+            Ações
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.Nome)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.SobreNome)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Login)
+    </td>
+    @*<td>*@
+    @Html.HiddenFor(modelItem => item.Senha)
+    @*</td>*@
+
+    <td>
+        @Html.DisplayFor(modelItem => item.Papeis.Nome)
+    </td>
+
+    <td>
+        @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
+        @Html.ActionLink("Detalhes", "Details", new { id = item.Id }) |
+        @Html.ActionLink("Deletar", "Delete", new { id = item.Id })
+    </td>
+</tr>
+    }
+
+</table>
+
+<div>
+    @Html.ActionLink("< Voltar para Tela Inicial", "Index", new {controller = "Cursos" })
+</div>
+
+@section scripts
+    {
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+}

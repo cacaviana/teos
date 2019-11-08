@@ -1,0 +1,1142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.NetFramework.Analyzers.2.9.6\build\Microsoft.NetFramework.Analyzers.props" Condition="Exists('..\packages\Microsoft.NetFramework.Analyzers.2.9.6\build\Microsoft.NetFramework.Analyzers.props')" />
+  <Import Project="..\packages\Microsoft.NetCore.Analyzers.2.9.6\build\Microsoft.NetCore.Analyzers.props" Condition="Exists('..\packages\Microsoft.NetCore.Analyzers.2.9.6\build\Microsoft.NetCore.Analyzers.props')" />
+  <Import Project="..\packages\Microsoft.CodeQuality.Analyzers.2.9.6\build\Microsoft.CodeQuality.Analyzers.props" Condition="Exists('..\packages\Microsoft.CodeQuality.Analyzers.2.9.6\build\Microsoft.CodeQuality.Analyzers.props')" />
+  <Import Project="..\packages\Microsoft.CodeAnalysis.VersionCheckAnalyzer.2.9.6\build\Microsoft.CodeAnalysis.VersionCheckAnalyzer.props" Condition="Exists('..\packages\Microsoft.CodeAnalysis.VersionCheckAnalyzer.2.9.6\build\Microsoft.CodeAnalysis.VersionCheckAnalyzer.props')" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BD07B296-5710-44EF-A078-24535B509EBD}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Teos</RootNamespace>
+    <AssemblyName>Teos</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>3.6</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DotNetOpenAuth.AspNet, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetOpenAuth.AspNet.4.3.4.13329\lib\net45-full\DotNetOpenAuth.AspNet.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.Core, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetOpenAuth.Core.4.3.4.13329\lib\net45-full\DotNetOpenAuth.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Core.4.3.4.13329\lib\net45-full\DotNetOpenAuth.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth.Consumer, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Consumer.4.3.4.13329\lib\net45-full\DotNetOpenAuth.OAuth.Consumer.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.Core.4.3.4.13329\lib\net45-full\DotNetOpenAuth.OpenId.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId.RelyingParty, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.RelyingParty.4.3.4.13329\lib\net45-full\DotNetOpenAuth.OpenId.RelyingParty.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Hangfire.Core, Version=1.7.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hangfire.Core.1.7.6\lib\net46\Hangfire.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="IdentityModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=e7877f4675df049f, processorArchitecture=MSIL">
+      <HintPath>..\packages\IdentityModel.4.0.0\lib\net461\IdentityModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Features, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.Features.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.Features.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Mvc.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Mvc.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Routing.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Routing.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Routing.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Extensions.Primitives, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=5.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Logging.5.5.0\lib\net461\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Net.Http.Headers, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.Headers.2.2.0\lib\netstandard2.0\Microsoft.Net.Http.Headers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.4.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.4.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.4.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.4.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.4.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.4.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.4.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.WebPages.OAuth, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.OAuth.3.2.7\lib\net45\Microsoft.Web.WebPages.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin.Security.Providers.Vimeo, Version=2.0.0.0, Culture=neutral, PublicKeyToken=1328b8c16b108c43, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.Security.Providers.Vimeo.2.26.0\lib\net45\Owin.Security.Providers.Vimeo.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Memory, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.1\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20505.0\lib\net40\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20505.0\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.1\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.4.5.0\lib\netstandard2.0\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.Data.3.2.7\lib\net45\WebMatrix.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.WebData, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.WebData.3.2.7\lib\net45\WebMatrix.WebData.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AutenticacaoController.cs" />
+    <Compile Include="Controllers\CaracteristicasController.cs" />
+    <Compile Include="Controllers\ClientesController.cs" />
+    <Compile Include="Controllers\ConteudosController.cs" />
+    <Compile Include="Controllers\CursosAPIController.cs" />
+    <Compile Include="Controllers\CursosController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HotmartConectionController.cs" />
+    <Compile Include="Controllers\IntegracaoController.cs" />
+    <Compile Include="Controllers\ModulosController.cs" />
+    <Compile Include="Controllers\PapeisController.cs" />
+    <Compile Include="Controllers\PerguntasController.cs" />
+    <Compile Include="Controllers\TurmasController.cs" />
+    <Compile Include="Controllers\UpdateArquivoController.cs" />
+    <Compile Include="Controllers\WebApi\AuthHotmartController.cs" />
+    <Compile Include="Controllers\WebApi\AuthVimeoController.cs" />
+    <Compile Include="Controllers\WebHook\HotmartWebHookController.cs" />
+    <Compile Include="Controllers\WebServicesApisController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909181224181_InitialCreate.cs" />
+    <Compile Include="Migrations\201909181224181_InitialCreate.Designer.cs">
+      <DependentUpon>201909181224181_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909181616008_ICollection_Turmas.cs" />
+    <Compile Include="Migrations\201909181616008_ICollection_Turmas.Designer.cs">
+      <DependentUpon>201909181616008_ICollection_Turmas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909201427566_qualquer.cs" />
+    <Compile Include="Migrations\201909201427566_qualquer.Designer.cs">
+      <DependentUpon>201909201427566_qualquer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909251314491_AlterarProp-TurmasCursosMembrosMatriculas.cs" />
+    <Compile Include="Migrations\201909251314491_AlterarProp-TurmasCursosMembrosMatriculas.Designer.cs">
+      <DependentUpon>201909251314491_AlterarProp-TurmasCursosMembrosMatriculas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909251852081_excluirchave.cs" />
+    <Compile Include="Migrations\201909251852081_excluirchave.Designer.cs">
+      <DependentUpon>201909251852081_excluirchave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909280115287_Conteudos_AllowsHTML.cs" />
+    <Compile Include="Migrations\201909280115287_Conteudos_AllowsHTML.Designer.cs">
+      <DependentUpon>201909280115287_Conteudos_AllowsHTML.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909301436504_Conteudo_Hierarquia.cs" />
+    <Compile Include="Migrations\201909301436504_Conteudo_Hierarquia.Designer.cs">
+      <DependentUpon>201909301436504_Conteudo_Hierarquia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909301631073_conteudo_remover_hierarquia.cs" />
+    <Compile Include="Migrations\201909301631073_conteudo_remover_hierarquia.Designer.cs">
+      <DependentUpon>201909301631073_conteudo_remover_hierarquia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909301632569_conteudo_add_hierarquia.cs" />
+    <Compile Include="Migrations\201909301632569_conteudo_add_hierarquia.Designer.cs">
+      <DependentUpon>201909301632569_conteudo_add_hierarquia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910010012214_Conteudo_CamposBanner.cs" />
+    <Compile Include="Migrations\201910010012214_Conteudo_CamposBanner.Designer.cs">
+      <DependentUpon>201910010012214_Conteudo_CamposBanner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910010023028_Conteudos_CamposCorLinks.cs" />
+    <Compile Include="Migrations\201910010023028_Conteudos_CamposCorLinks.Designer.cs">
+      <DependentUpon>201910010023028_Conteudos_CamposCorLinks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910010031447_Conteudo_reformafinal.cs" />
+    <Compile Include="Migrations\201910010031447_Conteudo_reformafinal.Designer.cs">
+      <DependentUpon>201910010031447_Conteudo_reformafinal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910021835015_AlterarMembros-paraUsuario-e-Criar-entidade-Papeis.cs" />
+    <Compile Include="Migrations\201910021835015_AlterarMembros-paraUsuario-e-Criar-entidade-Papeis.Designer.cs">
+      <DependentUpon>201910021835015_AlterarMembros-paraUsuario-e-Criar-entidade-Papeis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910021841222_AlterarMembros-paraUsuario-e-Criar-entidade-Papeis-parte-2.cs" />
+    <Compile Include="Migrations\201910021841222_AlterarMembros-paraUsuario-e-Criar-entidade-Papeis-parte-2.Designer.cs">
+      <DependentUpon>201910021841222_AlterarMembros-paraUsuario-e-Criar-entidade-Papeis-parte-2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910021939047_retirar_dataannotation_usuarios.cs" />
+    <Compile Include="Migrations\201910021939047_retirar_dataannotation_usuarios.Designer.cs">
+      <DependentUpon>201910021939047_retirar_dataannotation_usuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910061737021_cidade_matriculas.cs" />
+    <Compile Include="Migrations\201910061737021_cidade_matriculas.Designer.cs">
+      <DependentUpon>201910061737021_cidade_matriculas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910061739304_cidade_matriculas_remover.cs" />
+    <Compile Include="Migrations\201910061739304_cidade_matriculas_remover.Designer.cs">
+      <DependentUpon>201910061739304_cidade_matriculas_remover.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910111450558_Require_WebServicesApi.cs" />
+    <Compile Include="Migrations\201910111450558_Require_WebServicesApi.Designer.cs">
+      <DependentUpon>201910111450558_Require_WebServicesApi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910111459512_Renomear_WebServicesAPi.cs" />
+    <Compile Include="Migrations\201910111459512_Renomear_WebServicesAPi.Designer.cs">
+      <DependentUpon>201910111459512_Renomear_WebServicesAPi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910142056174_Usuario_WebApi.cs" />
+    <Compile Include="Migrations\201910142056174_Usuario_WebApi.Designer.cs">
+      <DependentUpon>201910142056174_Usuario_WebApi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910142124398_create_arquivoscursos.cs" />
+    <Compile Include="Migrations\201910142124398_create_arquivoscursos.Designer.cs">
+      <DependentUpon>201910142124398_create_arquivoscursos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910150054069_alter_cursos_promessas.cs" />
+    <Compile Include="Migrations\201910150054069_alter_cursos_promessas.Designer.cs">
+      <DependentUpon>201910150054069_alter_cursos_promessas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Arquivos.cs" />
+    <Compile Include="Models\ArquivosCursos.cs" />
+    <Compile Include="Models\Caracteristicas.cs" />
+    <Compile Include="Models\Clientes.cs" />
+    <Compile Include="Models\Conteudos.cs" />
+    <Compile Include="Models\Convites.cs" />
+    <Compile Include="Models\Credenciais.cs" />
+    <Compile Include="Models\Cursos.cs" />
+    <Compile Include="Models\DTO\CursosApi.cs" />
+    <Compile Include="Models\DTO\HotmartCredenciais.cs" />
+    <Compile Include="Models\DTO\VimeoCredenciais.cs" />
+    <Compile Include="Models\Matriculas.cs" />
+    <Compile Include="Models\Papeis.cs" />
+    <Compile Include="Models\Usuarios.cs" />
+    <Compile Include="Models\Modulos.cs" />
+    <Compile Include="Models\WebServicesApi.cs" />
+    <Compile Include="Utils\ManipulaArquivo.cs" />
+    <Compile Include="Utils\Hash.cs" />
+    <Compile Include="Utils\ClaimsSistema.cs" />
+    <Compile Include="Utils\Random.cs" />
+    <Compile Include="ViewModels\AdicionarArquivoViewModel.cs" />
+    <Compile Include="ViewModels\AlterarSenhaViewModel.cs" />
+    <Compile Include="ViewModels\CadastroUsuarioViewModels.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\ModulosViewModel.cs" />
+    <Compile Include="Models\Perguntas.cs" />
+    <Compile Include="Models\Respostas.cs" />
+    <Compile Include="Models\TeosContext.cs" />
+    <Compile Include="Models\Turmas.cs" />
+    <Compile Include="ViewModels\TurmasViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\jQuery.FileUpload\css\jquery.fileupload-noscript.css" />
+    <Content Include="Content\jQuery.FileUpload\css\jquery.fileupload-ui-noscript.css" />
+    <Content Include="Content\jQuery.FileUpload\css\jquery.fileupload-ui.css" />
+    <Content Include="Content\jQuery.FileUpload\css\jquery.fileupload.css" />
+    <Content Include="Content\jQuery.FileUpload\img\loading.gif" />
+    <Content Include="Content\jQuery.FileUpload\img\progressbar.gif" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.menu.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.spinner.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\themes\base\jquery.ui.tooltip.css" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.menu.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.spinner.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tooltip.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\esm\popper-utils.js" />
+    <Content Include="Scripts\esm\popper-utils.min.js" />
+    <Content Include="Scripts\esm\popper.js" />
+    <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Scripts\esm\popper.min.js.map" />
+    <Content Include="Scripts\esm\popper.js.map" />
+    <Content Include="Scripts\esm\popper-utils.min.js.map" />
+    <Content Include="Scripts\esm\popper-utils.js.map" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui-1.9.0.js" />
+    <Content Include="Scripts\jquery-ui-1.9.0.min.js" />
+    <Content Include="Scripts\jQuery.FileUpload\cors\jquery.postmessage-transport.js" />
+    <Content Include="Scripts\jQuery.FileUpload\cors\jquery.xdr-transport.js" />
+    <Content Include="Scripts\jQuery.FileUpload\jquery.fileupload-angular.js" />
+    <Content Include="Scripts\jQuery.FileUpload\jquery.fileupload-audio.js" />
+    <Content Include="Scripts\jQuery.FileUpload\jquery.fileupload-image.js" />
+    <Content Include="Scripts\jQuery.FileUpload\jquery.fileupload-jquery-ui.js" />
+    <Content Include="Scripts\jQuery.FileUpload\jquery.fileupload-process.js" />
+    <Content Include="Scripts\jQuery.FileUpload\jquery.fileupload-ui.js" />
+    <Content Include="Scripts\jQuery.FileUpload\jquery.fileupload-validate.js" />
+    <Content Include="Scripts\jQuery.FileUpload\jquery.fileupload-video.js" />
+    <Content Include="Scripts\jQuery.FileUpload\jquery.fileupload.js" />
+    <Content Include="Scripts\jQuery.FileUpload\jquery.iframe-transport.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\popper-utils.js" />
+    <Content Include="Scripts\popper-utils.min.js" />
+    <Content Include="Scripts\popper.js" />
+    <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\banner.jpg" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\ar.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\ar.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\bg.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\bg.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\by.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\by.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\ca.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\ca.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\cs.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\cs.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\da.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\da.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\de.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\de.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\el.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\el.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\es.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\es.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\es_ar.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\es_ar.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\fa.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\fa.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\fi.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\fi.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\fr.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\fr.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\he.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\he.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\hr.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\hr.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\hu.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\hu.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\id.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\id.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\it.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\it.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\ja.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\ja.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\ko.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\ko.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\lt.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\lt.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\mn.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\mn.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\my.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\my.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\nl.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\nl.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\no_nb.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\no_nb.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\ph.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\ph.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\pl.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\pl.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\pt.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\pt.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\pt_br.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\pt_br.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\ro.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\ro.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\rs.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\rs.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\rs_latin.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\rs_latin.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\ru.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\ru.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\sk.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\sk.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\sl.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\sl.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\sq.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\sq.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\sv.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\sv.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\th.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\th.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\tr.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\tr.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\ua.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\ua.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\vi.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\vi.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\zh_cn.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\zh_cn.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\zh_tw.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\langs\zh_tw.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\allowtagsfrompaste\trumbowyg.allowtagsfrompaste.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\allowtagsfrompaste\trumbowyg.allowtagsfrompaste.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\base64\trumbowyg.base64.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\base64\trumbowyg.base64.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\cleanpaste\trumbowyg.cleanpaste.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\cleanpaste\trumbowyg.cleanpaste.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\colors\trumbowyg.colors.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\colors\trumbowyg.colors.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\colors\ui\trumbowyg.colors.css" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\colors\ui\trumbowyg.colors.min.css" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\emoji\trumbowyg.emoji.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\emoji\trumbowyg.emoji.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\emoji\ui\trumbowyg.emoji.css" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\emoji\ui\trumbowyg.emoji.min.css" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\fontfamily\trumbowyg.fontfamily.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\fontfamily\trumbowyg.fontfamily.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\fontsize\trumbowyg.fontsize.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\fontsize\trumbowyg.fontsize.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\giphy\trumbowyg.giphy.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\giphy\trumbowyg.giphy.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\giphy\ui\trumbowyg.giphy.css" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\giphy\ui\trumbowyg.giphy.min.css" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\highlight\trumbowyg.highlight.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\highlight\trumbowyg.highlight.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\highlight\ui\trumbowyg.highlight.css" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\highlight\ui\trumbowyg.highlight.min.css" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\history\trumbowyg.history.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\history\trumbowyg.history.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\insertaudio\trumbowyg.insertaudio.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\insertaudio\trumbowyg.insertaudio.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\lineheight\trumbowyg.lineheight.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\lineheight\trumbowyg.lineheight.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\mathml\trumbowyg.mathml.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\mathml\trumbowyg.mathml.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\mathml\ui\trumbowyg.mathml.css" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\mathml\ui\trumbowyg.mathml.min.css" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\mention\trumbowyg.mention.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\mention\trumbowyg.mention.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\mention\ui\trumbowyg.mention.css" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\mention\ui\trumbowyg.mention.min.css" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\noembed\trumbowyg.noembed.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\noembed\trumbowyg.noembed.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\pasteembed\trumbowyg.pasteembed.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\pasteembed\trumbowyg.pasteembed.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\pasteimage\trumbowyg.pasteimage.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\pasteimage\trumbowyg.pasteimage.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\preformatted\trumbowyg.preformatted.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\preformatted\trumbowyg.preformatted.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\resizimg\trumbowyg.resizimg.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\resizimg\trumbowyg.resizimg.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\ruby\trumbowyg.ruby.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\ruby\trumbowyg.ruby.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\specialchars\trumbowyg.specialchars.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\specialchars\trumbowyg.specialchars.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\specialchars\ui\trumbowyg.specialchars.css" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\specialchars\ui\trumbowyg.specialchars.min.css" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\table\trumbowyg.table.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\table\trumbowyg.table.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\table\ui\trumbowyg.table.css" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\table\ui\trumbowyg.table.min.css" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\template\trumbowyg.template.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\template\trumbowyg.template.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\upload\trumbowyg.upload.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\upload\trumbowyg.upload.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\trumbowyg.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\trumbowyg.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\dist\ui\icons.svg" />
+    <Content Include="Scripts\Trumbowyg-master\dist\ui\trumbowyg.css" />
+    <Content Include="Scripts\Trumbowyg-master\dist\ui\trumbowyg.min.css" />
+    <Content Include="Scripts\Trumbowyg-master\docs\css\main.css" />
+    <Content Include="Scripts\Trumbowyg-master\docs\demos\core\dark-theme.html" />
+    <Content Include="Scripts\Trumbowyg-master\docs\demos\core\default.html" />
+    <Content Include="Scripts\Trumbowyg-master\docs\demos\core\simple.html" />
+    <Content Include="Scripts\Trumbowyg-master\docs\demos\index.html" />
+    <Content Include="Scripts\Trumbowyg-master\docs\demos\js\highlight.js" />
+    <Content Include="Scripts\Trumbowyg-master\docs\demos\js\loader.js" />
+    <Content Include="Scripts\Trumbowyg-master\docs\demos\js\runExampleCode.js" />
+    <Content Include="Scripts\Trumbowyg-master\docs\demos\plugins\allowtagsfrompaste.html" />
+    <Content Include="Scripts\Trumbowyg-master\docs\demos\plugins\base64.html" />
+    <Content Include="Scripts\Trumbowyg-master\docs\demos\plugins\cleanpaste.html" />
+    <Content Include="Scripts\Trumbowyg-master\docs\demos\plugins\colors.html" />
+    <Content Include="Scripts\Trumbowyg-master\docs\demos\plugins\emoji.html" />
+    <Content Include="Scripts\Trumbowyg-master\docs\demos\plugins\fontfamily.html" />
+    <Content Include="Scripts\Trumbowyg-master\docs\demos\plugins\fontsize.html" />
+    <Content Include="Scripts\Trumbowyg-master\docs\demos\plugins\giphy.html" />
+    <Content Include="Scripts\Trumbowyg-master\docs\demos\plugins\highlight.html" />
+    <Content Include="Scripts\Trumbowyg-master\docs\demos\plugins\history.html" />
+    <Content Include="Scripts\Trumbowyg-master\docs\demos\plugins\insertaudio.html" />
+    <Content Include="Scripts\Trumbowyg-master\docs\demos\plugins\lineheight.html" />
+    <Content Include="Scripts\Trumbowyg-master\docs\demos\plugins\mathml.html" />
+    <Content Include="Scripts\Trumbowyg-master\docs\demos\plugins\mention.html" />
+    <Content Include="Scripts\Trumbowyg-master\docs\demos\plugins\noembed.html" />
+    <Content Include="Scripts\Trumbowyg-master\docs\demos\plugins\pasteembed.html" />
+    <Content Include="Scripts\Trumbowyg-master\docs\demos\plugins\pasteimage.html" />
+    <Content Include="Scripts\Trumbowyg-master\docs\demos\plugins\preformatted.html" />
+    <Content Include="Scripts\Trumbowyg-master\docs\demos\plugins\resizimg.html" />
+    <Content Include="Scripts\Trumbowyg-master\docs\demos\plugins\ruby.html" />
+    <Content Include="Scripts\Trumbowyg-master\docs\demos\plugins\specialchars.html" />
+    <Content Include="Scripts\Trumbowyg-master\docs\demos\plugins\table.html" />
+    <Content Include="Scripts\Trumbowyg-master\docs\demos\plugins\template.html" />
+    <Content Include="Scripts\Trumbowyg-master\docs\demos\plugins\upload.html" />
+    <Content Include="Scripts\Trumbowyg-master\docs\documentation.html" />
+    <Content Include="Scripts\Trumbowyg-master\docs\documentation\core\index.html" />
+    <Content Include="Scripts\Trumbowyg-master\docs\documentation\index.html" />
+    <Content Include="Scripts\Trumbowyg-master\docs\documentation\plugins\index.html" />
+    <Content Include="Scripts\Trumbowyg-master\docs\favicon.png" />
+    <Content Include="Scripts\Trumbowyg-master\docs\gulpfile.js" />
+    <Content Include="Scripts\Trumbowyg-master\docs\humans.txt" />
+    <Content Include="Scripts\Trumbowyg-master\docs\img\beer.svg" />
+    <Content Include="Scripts\Trumbowyg-master\docs\img\globe.svg" />
+    <Content Include="Scripts\Trumbowyg-master\docs\img\introduction-customizable.svg" />
+    <Content Include="Scripts\Trumbowyg-master\docs\img\introduction-html.svg" />
+    <Content Include="Scripts\Trumbowyg-master\docs\img\introduction-lightweight.svg" />
+    <Content Include="Scripts\Trumbowyg-master\docs\img\logo-doc.svg" />
+    <Content Include="Scripts\Trumbowyg-master\docs\img\logo.svg" />
+    <Content Include="Scripts\Trumbowyg-master\docs\index.html" />
+    <Content Include="Scripts\Trumbowyg-master\docs\js\main.js" />
+    <Content Include="Scripts\Trumbowyg-master\docs\js\vendor\highlight.js" />
+    <Content Include="Scripts\Trumbowyg-master\docs\js\vendor\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\Trumbowyg-master\docs\robots.txt" />
+    <Content Include="Scripts\Trumbowyg-master\gulpfile.js" />
+    <Content Include="Scripts\Trumbowyg-master\index.html" />
+    <Content Include="Scripts\Trumbowyg-master\plugins\allowtagsfrompaste\trumbowyg.allowtagsfrompaste.js" />
+    <Content Include="Scripts\Trumbowyg-master\plugins\base64\trumbowyg.base64.js" />
+    <Content Include="Scripts\Trumbowyg-master\plugins\base64\ui\icons\base64.svg" />
+    <Content Include="Scripts\Trumbowyg-master\plugins\cleanpaste\trumbowyg.cleanpaste.js" />
+    <Content Include="Scripts\Trumbowyg-master\plugins\colors\trumbowyg.colors.js" />
+    <Content Include="Scripts\Trumbowyg-master\plugins\colors\ui\icons\back-color.svg" />
+    <Content Include="Scripts\Trumbowyg-master\plugins\colors\ui\icons\fore-color.svg" />
+    <Content Include="Scripts\Trumbowyg-master\plugins\emoji\trumbowyg.emoji.js" />
+    <Content Include="Scripts\Trumbowyg-master\plugins\emoji\ui\icons\emoji.svg" />
+    <Content Include="Scripts\Trumbowyg-master\plugins\fontfamily\trumbowyg.fontfamily.js" />
+    <Content Include="Scripts\Trumbowyg-master\plugins\fontsize\trumbowyg.fontsize.js" />
+    <Content Include="Scripts\Trumbowyg-master\plugins\fontsize\ui\icons\fontsize.svg" />
+    <Content Include="Scripts\Trumbowyg-master\plugins\giphy\trumbowyg.giphy.js" />
+    <Content Include="Scripts\Trumbowyg-master\plugins\giphy\ui\icons\giphy.svg" />
+    <Content Include="Scripts\Trumbowyg-master\plugins\highlight\trumbowyg.highlight.js" />
+    <Content Include="Scripts\Trumbowyg-master\plugins\highlight\ui\icons\highlight.svg" />
+    <Content Include="Scripts\Trumbowyg-master\plugins\history\trumbowyg.history.js" />
+    <Content Include="Scripts\Trumbowyg-master\plugins\insertaudio\trumbowyg.insertaudio.js" />
+    <Content Include="Scripts\Trumbowyg-master\plugins\insertaudio\ui\icons\insert-audio.svg" />
+    <Content Include="Scripts\Trumbowyg-master\plugins\lineheight\trumbowyg.lineheight.js" />
+    <Content Include="Scripts\Trumbowyg-master\plugins\lineheight\ui\icons\lineheight.svg" />
+    <Content Include="Scripts\Trumbowyg-master\plugins\mathml\trumbowyg.mathml.js" />
+    <Content Include="Scripts\Trumbowyg-master\plugins\mathml\ui\icons\mathml.svg" />
+    <Content Include="Scripts\Trumbowyg-master\plugins\mention\trumbowyg.mention.js" />
+    <Content Include="Scripts\Trumbowyg-master\plugins\mention\ui\icons\mention.svg" />
+    <Content Include="Scripts\Trumbowyg-master\plugins\noembed\trumbowyg.noembed.js" />
+    <Content Include="Scripts\Trumbowyg-master\plugins\noembed\ui\icons\noembed.svg" />
+    <Content Include="Scripts\Trumbowyg-master\plugins\pasteembed\trumbowyg.pasteembed.js" />
+    <Content Include="Scripts\Trumbowyg-master\plugins\pasteimage\trumbowyg.pasteimage.js" />
+    <Content Include="Scripts\Trumbowyg-master\plugins\preformatted\trumbowyg.preformatted.js" />
+    <Content Include="Scripts\Trumbowyg-master\plugins\preformatted\ui\icons\preformatted.svg" />
+    <Content Include="Scripts\Trumbowyg-master\plugins\resizimg\trumbowyg.resizimg.js" />
+    <Content Include="Scripts\Trumbowyg-master\plugins\ruby\trumbowyg.ruby.js" />
+    <Content Include="Scripts\Trumbowyg-master\plugins\ruby\ui\icons\ruby.svg" />
+    <Content Include="Scripts\Trumbowyg-master\plugins\specialchars\trumbowyg.specialchars.js" />
+    <Content Include="Scripts\Trumbowyg-master\plugins\specialchars\ui\icons\special-chars.svg" />
+    <Content Include="Scripts\Trumbowyg-master\plugins\table\trumbowyg.table.js" />
+    <Content Include="Scripts\Trumbowyg-master\plugins\table\ui\icons\col-delete.svg" />
+    <Content Include="Scripts\Trumbowyg-master\plugins\table\ui\icons\col-left.svg" />
+    <Content Include="Scripts\Trumbowyg-master\plugins\table\ui\icons\col-right.svg" />
+    <Content Include="Scripts\Trumbowyg-master\plugins\table\ui\icons\row-above.svg" />
+    <Content Include="Scripts\Trumbowyg-master\plugins\table\ui\icons\row-below.svg" />
+    <Content Include="Scripts\Trumbowyg-master\plugins\table\ui\icons\row-delete.svg" />
+    <Content Include="Scripts\Trumbowyg-master\plugins\table\ui\icons\table-delete.svg" />
+    <Content Include="Scripts\Trumbowyg-master\plugins\table\ui\icons\table.svg" />
+    <Content Include="Scripts\Trumbowyg-master\plugins\template\trumbowyg.template.js" />
+    <Content Include="Scripts\Trumbowyg-master\plugins\upload\trumbowyg.upload.js" />
+    <Content Include="Scripts\Trumbowyg-master\plugins\upload\ui\icons\upload.svg" />
+    <Content Include="Scripts\Trumbowyg-master\sponsors\avot.svg" />
+    <Content Include="Scripts\Trumbowyg-master\sponsors\bookingninja.png" />
+    <Content Include="Scripts\Trumbowyg-master\sponsors\socialoptic.png" />
+    <Content Include="Scripts\Trumbowyg-master\src\langs\ar.js" />
+    <Content Include="Scripts\Trumbowyg-master\src\langs\bg.js" />
+    <Content Include="Scripts\Trumbowyg-master\src\langs\by.js" />
+    <Content Include="Scripts\Trumbowyg-master\src\langs\ca.js" />
+    <Content Include="Scripts\Trumbowyg-master\src\langs\cs.js" />
+    <Content Include="Scripts\Trumbowyg-master\src\langs\da.js" />
+    <Content Include="Scripts\Trumbowyg-master\src\langs\de.js" />
+    <Content Include="Scripts\Trumbowyg-master\src\langs\el.js" />
+    <Content Include="Scripts\Trumbowyg-master\src\langs\en.js" />
+    <Content Include="Scripts\Trumbowyg-master\src\langs\es.js" />
+    <Content Include="Scripts\Trumbowyg-master\src\langs\es_ar.js" />
+    <Content Include="Scripts\Trumbowyg-master\src\langs\fa.js" />
+    <Content Include="Scripts\Trumbowyg-master\src\langs\fi.js" />
+    <Content Include="Scripts\Trumbowyg-master\src\langs\fr.js" />
+    <Content Include="Scripts\Trumbowyg-master\src\langs\he.js" />
+    <Content Include="Scripts\Trumbowyg-master\src\langs\hr.js" />
+    <Content Include="Scripts\Trumbowyg-master\src\langs\hu.js" />
+    <Content Include="Scripts\Trumbowyg-master\src\langs\id.js" />
+    <Content Include="Scripts\Trumbowyg-master\src\langs\it.js" />
+    <Content Include="Scripts\Trumbowyg-master\src\langs\ja.js" />
+    <Content Include="Scripts\Trumbowyg-master\src\langs\ko.js" />
+    <Content Include="Scripts\Trumbowyg-master\src\langs\lt.js" />
+    <Content Include="Scripts\Trumbowyg-master\src\langs\mn.js" />
+    <Content Include="Scripts\Trumbowyg-master\src\langs\my.js" />
+    <Content Include="Scripts\Trumbowyg-master\src\langs\nl.js" />
+    <Content Include="Scripts\Trumbowyg-master\src\langs\no_nb.js" />
+    <Content Include="Scripts\Trumbowyg-master\src\langs\ph.js" />
+    <Content Include="Scripts\Trumbowyg-master\src\langs\pl.js" />
+    <Content Include="Scripts\Trumbowyg-master\src\langs\pt.js" />
+    <Content Include="Scripts\Trumbowyg-master\src\langs\pt_br.js" />
+    <Content Include="Scripts\Trumbowyg-master\src\langs\ro.js" />
+    <Content Include="Scripts\Trumbowyg-master\src\langs\rs.js" />
+    <Content Include="Scripts\Trumbowyg-master\src\langs\rs_latin.js" />
+    <Content Include="Scripts\Trumbowyg-master\src\langs\ru.js" />
+    <Content Include="Scripts\Trumbowyg-master\src\langs\sk.js" />
+    <Content Include="Scripts\Trumbowyg-master\src\langs\sl.js" />
+    <Content Include="Scripts\Trumbowyg-master\src\langs\sq.js" />
+    <Content Include="Scripts\Trumbowyg-master\src\langs\sv.js" />
+    <Content Include="Scripts\Trumbowyg-master\src\langs\th.js" />
+    <Content Include="Scripts\Trumbowyg-master\src\langs\tr.js" />
+    <Content Include="Scripts\Trumbowyg-master\src\langs\ua.js" />
+    <Content Include="Scripts\Trumbowyg-master\src\langs\vi.js" />
+    <Content Include="Scripts\Trumbowyg-master\src\langs\zh_cn.js" />
+    <Content Include="Scripts\Trumbowyg-master\src\langs\zh_tw.js" />
+    <Content Include="Scripts\Trumbowyg-master\src\trumbowyg.js" />
+    <Content Include="Scripts\Trumbowyg-master\src\ui\icons\blockquote.svg" />
+    <Content Include="Scripts\Trumbowyg-master\src\ui\icons\bold.svg" />
+    <Content Include="Scripts\Trumbowyg-master\src\ui\icons\close.svg" />
+    <Content Include="Scripts\Trumbowyg-master\src\ui\icons\create-link.svg" />
+    <Content Include="Scripts\Trumbowyg-master\src\ui\icons\del.svg" />
+    <Content Include="Scripts\Trumbowyg-master\src\ui\icons\em.svg" />
+    <Content Include="Scripts\Trumbowyg-master\src\ui\icons\fullscreen.svg" />
+    <Content Include="Scripts\Trumbowyg-master\src\ui\icons\h1.svg" />
+    <Content Include="Scripts\Trumbowyg-master\src\ui\icons\h2.svg" />
+    <Content Include="Scripts\Trumbowyg-master\src\ui\icons\h3.svg" />
+    <Content Include="Scripts\Trumbowyg-master\src\ui\icons\h4.svg" />
+    <Content Include="Scripts\Trumbowyg-master\src\ui\icons\h5.svg" />
+    <Content Include="Scripts\Trumbowyg-master\src\ui\icons\h6.svg" />
+    <Content Include="Scripts\Trumbowyg-master\src\ui\icons\horizontal-rule.svg" />
+    <Content Include="Scripts\Trumbowyg-master\src\ui\icons\insert-image.svg" />
+    <Content Include="Scripts\Trumbowyg-master\src\ui\icons\italic.svg" />
+    <Content Include="Scripts\Trumbowyg-master\src\ui\icons\justify-center.svg" />
+    <Content Include="Scripts\Trumbowyg-master\src\ui\icons\justify-full.svg" />
+    <Content Include="Scripts\Trumbowyg-master\src\ui\icons\justify-left.svg" />
+    <Content Include="Scripts\Trumbowyg-master\src\ui\icons\justify-right.svg" />
+    <Content Include="Scripts\Trumbowyg-master\src\ui\icons\link.svg" />
+    <Content Include="Scripts\Trumbowyg-master\src\ui\icons\ordered-list.svg" />
+    <Content Include="Scripts\Trumbowyg-master\src\ui\icons\p.svg" />
+    <Content Include="Scripts\Trumbowyg-master\src\ui\icons\redo.svg" />
+    <Content Include="Scripts\Trumbowyg-master\src\ui\icons\removeformat.svg" />
+    <Content Include="Scripts\Trumbowyg-master\src\ui\icons\strikethrough.svg" />
+    <Content Include="Scripts\Trumbowyg-master\src\ui\icons\strong.svg" />
+    <Content Include="Scripts\Trumbowyg-master\src\ui\icons\subscript.svg" />
+    <Content Include="Scripts\Trumbowyg-master\src\ui\icons\superscript.svg" />
+    <Content Include="Scripts\Trumbowyg-master\src\ui\icons\underline.svg" />
+    <Content Include="Scripts\Trumbowyg-master\src\ui\icons\undo.svg" />
+    <Content Include="Scripts\Trumbowyg-master\src\ui\icons\unlink.svg" />
+    <Content Include="Scripts\Trumbowyg-master\src\ui\icons\unordered-list.svg" />
+    <Content Include="Scripts\Trumbowyg-master\src\ui\icons\view-html.svg" />
+    <Content Include="Scripts\trumbowyg\trumbowyg.min.css" />
+    <Content Include="Scripts\trumbowyg\trumbowyg.min.js" />
+    <Content Include="Scripts\trumbowyg\ui\icons.svg" />
+    <Content Include="Scripts\umd\popper-utils.js" />
+    <Content Include="Scripts\umd\popper-utils.min.js" />
+    <Content Include="Scripts\umd\popper.js" />
+    <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Cursos\Create.cshtml" />
+    <Content Include="Views\Cursos\Delete.cshtml" />
+    <Content Include="Views\Cursos\Details.cshtml" />
+    <Content Include="Views\Cursos\Edit.cshtml" />
+    <Content Include="Views\Cursos\Index.cshtml" />
+    <Content Include="Views\Caracteristicas\Create.cshtml" />
+    <Content Include="Views\Caracteristicas\Delete.cshtml" />
+    <Content Include="Views\Caracteristicas\Details.cshtml" />
+    <Content Include="Views\Caracteristicas\Edit.cshtml" />
+    <Content Include="Views\Caracteristicas\Index.cshtml" />
+    <Content Include="Views\Conteudos\Create.cshtml" />
+    <Content Include="Views\Conteudos\Delete.cshtml" />
+    <Content Include="Views\Conteudos\Details.cshtml" />
+    <Content Include="Views\Conteudos\Edit.cshtml" />
+    <Content Include="Views\Conteudos\Index.cshtml" />
+    <Content Include="Views\Turmas\Create.cshtml" />
+    <Content Include="Views\Turmas\Delete.cshtml" />
+    <Content Include="Views\Turmas\Details.cshtml" />
+    <Content Include="Views\Turmas\Edit.cshtml" />
+    <Content Include="Views\Modulos\Index.cshtml" />
+    <Content Include="Views\Modulos\Create.cshtml" />
+    <Content Include="Views\Turmas\Index.cshtml" />
+    <Content Include="Views\Modulos\Edit.cshtml" />
+    <Content Include="Views\Perguntas\Create.cshtml" />
+    <Content Include="Views\Perguntas\Delete.cshtml" />
+    <Content Include="Views\Perguntas\Details.cshtml" />
+    <Content Include="Views\Perguntas\Edit.cshtml" />
+    <Content Include="Views\Perguntas\Index.cshtml" />
+    <Content Include="Scripts\Trumbowyg-master\.bowerrc" />
+    <Content Include="Scripts\Trumbowyg-master\.gitattributes" />
+    <Content Include="Scripts\Trumbowyg-master\.github\FUNDING.yml" />
+    <Content Include="Scripts\Trumbowyg-master\.github\ISSUE_TEMPLATE.md" />
+    <Content Include="Scripts\Trumbowyg-master\.gitignore" />
+    <Content Include="Scripts\Trumbowyg-master\.jshintrc" />
+    <Content Include="Scripts\Trumbowyg-master\.npmignore" />
+    <Content Include="Scripts\Trumbowyg-master\BACKERS.md" />
+    <Content Include="Scripts\Trumbowyg-master\bower.json" />
+    <Content Include="Scripts\Trumbowyg-master\CONTRIBUTORS.md" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\colors\ui\sass\trumbowyg.colors.scss" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\emoji\ui\sass\trumbowyg.emoji.scss" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\giphy\ui\sass\trumbowyg.giphy.scss" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\highlight\ui\sass\trumbowyg.highlight.scss" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\mathml\ui\sass\trumbowyg.mathml.scss" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\mention\ui\sass\trumbowyg.mention.scss" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\specialchars\ui\sass\trumbowyg.specialchars.scss" />
+    <Content Include="Scripts\Trumbowyg-master\dist\plugins\table\ui\sass\trumbowyg.table.scss" />
+    <Content Include="Scripts\Trumbowyg-master\dist\ui\sass\trumbowyg.scss" />
+    <Content Include="Scripts\Trumbowyg-master\docs\.gitignore" />
+    <Content Include="Scripts\Trumbowyg-master\docs\.jshintrc" />
+    <Content Include="Scripts\Trumbowyg-master\docs\font\panton.eot" />
+    <Content Include="Scripts\Trumbowyg-master\docs\font\panton.ttf" />
+    <Content Include="Scripts\Trumbowyg-master\docs\font\panton.woff" />
+    <Content Include="Scripts\Trumbowyg-master\docs\font\panton.woff2" />
+    <Content Include="Scripts\Trumbowyg-master\docs\package.json" />
+    <Content Include="Scripts\Trumbowyg-master\docs\scss\main.scss" />
+    <Content Include="Scripts\Trumbowyg-master\docs\scss\_base.scss" />
+    <Content Include="Scripts\Trumbowyg-master\docs\scss\_buttons.scss" />
+    <Content Include="Scripts\Trumbowyg-master\docs\scss\_documentation.scss" />
+    <Content Include="Scripts\Trumbowyg-master\docs\scss\_donate.scss" />
+    <Content Include="Scripts\Trumbowyg-master\docs\scss\_font.scss" />
+    <Content Include="Scripts\Trumbowyg-master\docs\scss\_footer.scss" />
+    <Content Include="Scripts\Trumbowyg-master\docs\scss\_get-started.scss" />
+    <Content Include="Scripts\Trumbowyg-master\docs\scss\_header.scss" />
+    <Content Include="Scripts\Trumbowyg-master\docs\scss\_highlightjs-github.scss" />
+    <Content Include="Scripts\Trumbowyg-master\docs\scss\_introduction.scss" />
+    <Content Include="Scripts\Trumbowyg-master\docs\scss\_languages.scss" />
+    <Content Include="Scripts\Trumbowyg-master\docs\scss\_normalize.scss" />
+    <Content Include="Scripts\Trumbowyg-master\docs\scss\_plugins-packages.scss" />
+    <Content Include="Scripts\Trumbowyg-master\docs\scss\_section.scss" />
+    <Content Include="Scripts\Trumbowyg-master\docs\yarn.lock" />
+    <Content Include="Scripts\Trumbowyg-master\LICENSE" />
+    <Content Include="Scripts\Trumbowyg-master\package.json" />
+    <Content Include="Scripts\Trumbowyg-master\plugins\colors\ui\sass\trumbowyg.colors.scss" />
+    <Content Include="Scripts\Trumbowyg-master\plugins\emoji\ui\sass\trumbowyg.emoji.scss" />
+    <Content Include="Scripts\Trumbowyg-master\plugins\giphy\ui\sass\trumbowyg.giphy.scss" />
+    <Content Include="Scripts\Trumbowyg-master\plugins\highlight\ui\sass\trumbowyg.highlight.scss" />
+    <Content Include="Scripts\Trumbowyg-master\plugins\mathml\ui\sass\trumbowyg.mathml.scss" />
+    <Content Include="Scripts\Trumbowyg-master\plugins\mention\ui\sass\trumbowyg.mention.scss" />
+    <Content Include="Scripts\Trumbowyg-master\plugins\specialchars\ui\sass\trumbowyg.specialchars.scss" />
+    <Content Include="Scripts\Trumbowyg-master\plugins\table\ui\sass\trumbowyg.table.scss" />
+    <Content Include="Scripts\Trumbowyg-master\README.md" />
+    <Content Include="Scripts\Trumbowyg-master\src\ui\sass\trumbowyg.scss" />
+    <Content Include="Scripts\Trumbowyg-master\yarn.lock" />
+    <Content Include="Views\Cursos\EntrarCurso.cshtml" />
+    <Content Include="Views\Cursos\AssistirAula.cshtml" />
+    <Content Include="Scripts\umd\popper.min.js.map" />
+    <Content Include="Scripts\umd\popper.js.map" />
+    <Content Include="Scripts\umd\popper-utils.min.js.map" />
+    <Content Include="Scripts\umd\popper-utils.js.map" />
+    <Content Include="Scripts\README.md" />
+    <Content Include="Scripts\popper.min.js.map" />
+    <Content Include="Scripts\popper.js.map" />
+    <Content Include="Scripts\popper-utils.min.js.map" />
+    <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Autenticacao\Cadastrar.cshtml" />
+    <Content Include="Views\Autenticacao\Index.cshtml" />
+    <Content Include="Views\Papeis\Create.cshtml" />
+    <Content Include="Views\Papeis\Delete.cshtml" />
+    <Content Include="Views\Papeis\Details.cshtml" />
+    <Content Include="Views\Papeis\Edit.cshtml" />
+    <Content Include="Views\Papeis\Index.cshtml" />
+    <Content Include="Views\Autenticacao\Edit.cshtml" />
+    <Content Include="Views\Autenticacao\Login.cshtml" />
+    <Content Include="Views\Autenticacao\AlterarSenha.cshtml" />
+    <Content Include="Views\CursosAPI\Index.cshtml" />
+    <Content Include="Views\CursosAPI\Details.cshtml" />
+    <Content Include="Views\CursosAPI\Create.cshtml" />
+    <Content Include="Views\CursosAPI\Delete.cshtml" />
+    <Content Include="Views\HotmartConection\Index.cshtml" />
+    <Content Include="Views\HotmartConection\Autenticar.cshtml" />
+    <Content Include="Views\Clientes\Create.cshtml" />
+    <Content Include="Views\Clientes\Delete.cshtml" />
+    <Content Include="Views\Clientes\Details.cshtml" />
+    <Content Include="Views\Clientes\Edit.cshtml" />
+    <Content Include="Views\Clientes\Index.cshtml" />
+    <Content Include="Views\WebServicesApis\Create.cshtml" />
+    <Content Include="Views\WebServicesApis\Delete.cshtml" />
+    <Content Include="Views\WebServicesApis\Details.cshtml" />
+    <Content Include="Views\WebServicesApis\Edit.cshtml" />
+    <Content Include="Views\WebServicesApis\Index.cshtml" />
+    <Content Include="Views\Integracao\Index.cshtml" />
+    <Content Include="Views\UpdateArquivo\Index.cshtml" />
+    <Content Include="Views\UpdateArquivo\Create.cshtml" />
+    <Content Include="Views\Modulos\CreateNew.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Arquivos\Cursos\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201909181224181_InitialCreate.resx">
+      <DependentUpon>201909181224181_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909181616008_ICollection_Turmas.resx">
+      <DependentUpon>201909181616008_ICollection_Turmas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909201427566_qualquer.resx">
+      <DependentUpon>201909201427566_qualquer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909251314491_AlterarProp-TurmasCursosMembrosMatriculas.resx">
+      <DependentUpon>201909251314491_AlterarProp-TurmasCursosMembrosMatriculas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909251852081_excluirchave.resx">
+      <DependentUpon>201909251852081_excluirchave.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909280115287_Conteudos_AllowsHTML.resx">
+      <DependentUpon>201909280115287_Conteudos_AllowsHTML.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909301436504_Conteudo_Hierarquia.resx">
+      <DependentUpon>201909301436504_Conteudo_Hierarquia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909301631073_conteudo_remover_hierarquia.resx">
+      <DependentUpon>201909301631073_conteudo_remover_hierarquia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909301632569_conteudo_add_hierarquia.resx">
+      <DependentUpon>201909301632569_conteudo_add_hierarquia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910010012214_Conteudo_CamposBanner.resx">
+      <DependentUpon>201910010012214_Conteudo_CamposBanner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910010023028_Conteudos_CamposCorLinks.resx">
+      <DependentUpon>201910010023028_Conteudos_CamposCorLinks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910010031447_Conteudo_reformafinal.resx">
+      <DependentUpon>201910010031447_Conteudo_reformafinal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910021835015_AlterarMembros-paraUsuario-e-Criar-entidade-Papeis.resx">
+      <DependentUpon>201910021835015_AlterarMembros-paraUsuario-e-Criar-entidade-Papeis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910021841222_AlterarMembros-paraUsuario-e-Criar-entidade-Papeis-parte-2.resx">
+      <DependentUpon>201910021841222_AlterarMembros-paraUsuario-e-Criar-entidade-Papeis-parte-2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910021939047_retirar_dataannotation_usuarios.resx">
+      <DependentUpon>201910021939047_retirar_dataannotation_usuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910061737021_cidade_matriculas.resx">
+      <DependentUpon>201910061737021_cidade_matriculas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910061739304_cidade_matriculas_remover.resx">
+      <DependentUpon>201910061739304_cidade_matriculas_remover.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910111450558_Require_WebServicesApi.resx">
+      <DependentUpon>201910111450558_Require_WebServicesApi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910111459512_Renomear_WebServicesAPi.resx">
+      <DependentUpon>201910111459512_Renomear_WebServicesAPi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910142056174_Usuario_WebApi.resx">
+      <DependentUpon>201910142056174_Usuario_WebApi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910142124398_create_arquivoscursos.resx">
+      <DependentUpon>201910142124398_create_arquivoscursos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910150054069_alter_cursos_promessas.resx">
+      <DependentUpon>201910150054069_alter_cursos_promessas.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\Microsoft.CodeAnalysis.VersionCheckAnalyzer.2.9.6\analyzers\dotnet\cs\Microsoft.CodeAnalysis.VersionCheckAnalyzer.resources.dll" />
+    <Analyzer Include="..\packages\Microsoft.CodeAnalysis.VersionCheckAnalyzer.2.9.6\analyzers\dotnet\Microsoft.CodeAnalysis.VersionCheckAnalyzer.dll" />
+    <Analyzer Include="..\packages\Microsoft.CodeQuality.Analyzers.2.9.6\analyzers\dotnet\cs\Humanizer.dll" />
+    <Analyzer Include="..\packages\Microsoft.CodeQuality.Analyzers.2.9.6\analyzers\dotnet\cs\Microsoft.CodeQuality.Analyzers.dll" />
+    <Analyzer Include="..\packages\Microsoft.CodeQuality.Analyzers.2.9.6\analyzers\dotnet\cs\Microsoft.CodeQuality.CSharp.Analyzers.dll" />
+    <Analyzer Include="..\packages\Microsoft.NetCore.Analyzers.2.9.6\analyzers\dotnet\cs\Microsoft.NetCore.Analyzers.dll" />
+    <Analyzer Include="..\packages\Microsoft.NetCore.Analyzers.2.9.6\analyzers\dotnet\cs\Microsoft.NetCore.CSharp.Analyzers.dll" />
+    <Analyzer Include="..\packages\Microsoft.NetFramework.Analyzers.2.9.6\analyzers\dotnet\cs\Microsoft.NetFramework.Analyzers.dll" />
+    <Analyzer Include="..\packages\Microsoft.NetFramework.Analyzers.2.9.6\analyzers\dotnet\cs\Microsoft.NetFramework.CSharp.Analyzers.dll" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>53520</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:53520/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este projeto faz referência a pacotes do NuGet que não estão presentes neste computador. Use a Restauração de Pacotes do NuGet para baixá-los.  Para obter mais informações, consulte http://go.microsoft.com/fwlink/?LinkID=322105. O arquivo ausente é {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeAnalysis.VersionCheckAnalyzer.2.9.6\build\Microsoft.CodeAnalysis.VersionCheckAnalyzer.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeAnalysis.VersionCheckAnalyzer.2.9.6\build\Microsoft.CodeAnalysis.VersionCheckAnalyzer.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeQuality.Analyzers.2.9.6\build\Microsoft.CodeQuality.Analyzers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeQuality.Analyzers.2.9.6\build\Microsoft.CodeQuality.Analyzers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.NetCore.Analyzers.2.9.6\build\Microsoft.NetCore.Analyzers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.NetCore.Analyzers.2.9.6\build\Microsoft.NetCore.Analyzers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.NetFramework.Analyzers.2.9.6\build\Microsoft.NetFramework.Analyzers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.NetFramework.Analyzers.2.9.6\build\Microsoft.NetFramework.Analyzers.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

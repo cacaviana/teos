@@ -1,0 +1,58 @@
+﻿@model Teos.Models.WebServicesApi
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>WebServicesApi</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClientId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClientId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClientSecret)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClientSecret)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Basic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Basic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TokenAcess)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TokenAcess)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

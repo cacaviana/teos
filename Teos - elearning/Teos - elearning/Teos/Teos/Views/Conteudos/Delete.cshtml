@@ -1,0 +1,58 @@
+﻿@model Teos.Models.Conteudos
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<br />
+<h4>Conteúdos</h4>
+
+<div>
+    <h6>Deletar conteúdo</h6>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Avaliacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Avaliacao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Texto_Embed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Texto_Embed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModulosId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModulosId)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Deletar" class="btn btn-outline-dark" />
+            <br />
+            <br />
+            @Html.ActionLink("< Voltar para Conteúdos", "Index")
+        </div>
+    }
+</div>

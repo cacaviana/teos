@@ -1,0 +1,58 @@
+﻿@model Teos.Models.Cursos
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<br />
+<h4>Cursos</h4>
+
+<div>
+    <h6>Deletar curso</h6>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Link_Imagem)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Link_Imagem)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Url_Pg_Vendas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Url_Pg_Vendas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Link_Certificado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Link_Certificado)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+<div class="form-actions no-color">
+    <input type="submit" value="Deletar" class="btn btn-outline-dark" />
+    <br />
+    <br />
+    @Html.ActionLink("< Voltar para Cursos", "Index")
+</div>
+    }
+</div>

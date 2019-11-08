@@ -1,0 +1,42 @@
+﻿@model Teos.Models.Turmas
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<br />
+<h4>Turmas</h4>
+
+<div>
+    <h6>Deletar turma</h6>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CursosId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CursosId)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-outline-dark" />
+            <br />
+            <br />
+            @Html.ActionLink("< Voltar para Turmas", "Index")
+        </div>
+    }
+</div>

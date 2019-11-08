@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Teos.Models.TurmasViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome_Curso)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome_Turma)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome_Turma)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome_Curso)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Codigo_Turma }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Codigo_Turma }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Codigo_Turma })
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+

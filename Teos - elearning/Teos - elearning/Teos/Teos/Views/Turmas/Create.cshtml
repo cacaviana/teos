@@ -1,0 +1,51 @@
+﻿@model Teos.Models.Turmas
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<br />
+<h4>Turmas</h4>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h6>Criar nova turma</h6>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        <div class="col-md-5"><strong>Nome da Turma</strong></div>
+        <div class="col-md-12">
+            @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    
+
+    <div class="form-group">
+        <div class="col-md-5">Curso</div>
+        <div class="col-md-12">
+           @Html.DropDownList("CursosId", null, htmlAttributes: new { @class = "form-control" })
+            
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-10">
+            <input type="submit" value="Criar" class="btn btn-outline-dark" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("< Voltar para Turmas", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,130 @@
+﻿@model Teos.Models.Conteudos
+
+@{
+    ViewBag.Title = "Create";
+}
+<br />
+<h4>Conteúdos</h4>
+
+<head>
+
+    <link href="~/Scripts/Trumbowyg-master/dist/ui/trumbowyg.css" rel="stylesheet" />
+</head>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h6>Criar novo conteúdo</h6>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+    <div class="form-group">
+        <div class="col-md-5"> <p class="text-capitalize">Título</p></div>
+
+        <div class="col-md-12">
+            @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-md-5"> <p class="text-capitalize">Módulo</p></div>
+
+        <div class="col-md-12">
+            @Html.EditorFor(model => model.ModulosId, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ModulosId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div>
+            <textarea id="editor" name="Texto_Embed" placeholder="<Insira o código de incorporação aqui>"></textarea>
+        </div>
+    </div>
+    <br />
+    <h6>Configurações do Banner deste conteúdo</h6>
+    (Se não desejar banner para este conteúdo, deixe todos os campos em branco.)
+    <br />
+    <br />
+
+    <div class="form-group">
+        <div class="col-md-5"> <p>Texto do banner</p></div>
+
+        <div class="col-md-12">
+            @Html.EditorFor(model => model.TextoBanner, new { htmlAttributes = new { @class = "form-control" } })
+
+        </div>
+
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-5"> <p>Link do banner</p></div>
+
+        <div class="col-md-12">
+            @Html.EditorFor(model => model.LinkBanner, new { htmlAttributes = new { @class = "form-control" } })
+
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-md-5"> <p>Cor de fundo do banner</p></div>
+
+        <div class="col-md-12">
+            @Html.EditorFor(model => model.CorFundoBanner, new { htmlAttributes = new { @class = "form" } })
+        </div>
+    </div>
+
+    <div class="file-upload-wrapper">
+        <input type="file" id="input-file-now" class="file-upload" multiple/>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-8"> <p>Cor do texto do banner</p></div>
+
+        <div class="col-md-12">
+
+            @Html.TextBox("Oi Lindão", null, new { htmlAttributes = new { @class = "form" } })
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-md-10">
+            <input type="submit" value="Criar" class="btn btn-outline-dark" />
+        </div>
+    </div>
+
+
+</div>
+}
+
+<div>
+    @Html.ActionLink("< Voltar para Conteúdos", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="~/Scripts/Trumbowyg-master/plugins/insertaudio/trumbowyg.insertaudio.js"></script>
+    <script src="~/Scripts/Trumbowyg-master/dist/trumbowyg.min.js"></script>
+    <script src="~/Scripts/Trumbowyg-master/dist/plugins/pasteimage/trumbowyg.pasteimage.min.js"></script>
+    <script src="~/Scripts/Trumbowyg-master/dist/plugins/cleanpaste/trumbowyg.cleanpaste.min.js"></script>
+
+
+    <script type="text/javascript">
+
+        $('#editor').trumbowyg();
+
+    </script>
+
+
+
+}

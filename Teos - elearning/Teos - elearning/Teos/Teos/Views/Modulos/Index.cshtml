@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Teos.Models.Modulos>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+<h4>Módulos</h4>
+
+<p>
+    @Html.ActionLink("Criar novo módulo", "Create")
+</p>
+<table class="table table-hover table-responsive-sm">
+    <tr>
+        <th>
+            Nome do Módulo
+        </th>
+        <th>
+            Curso
+        </th>
+        <th>
+            Ações
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cursos.Nome)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.Id}) |
+                @Html.ActionLink("Deletar", "Delete", new { id = item.Id})
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div>
+    @Html.ActionLink("< Voltar para Tela Inicial", "Index", new { controller = "Cursos" })
+</div>
+
+
+

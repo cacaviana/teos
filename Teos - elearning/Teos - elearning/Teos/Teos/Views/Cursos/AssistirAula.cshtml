@@ -1,0 +1,78 @@
+﻿@model  IEnumerable<Teos.Models.Conteudos>
+
+@{
+    ViewBag.Title = "Assistir_Aula";
+}
+
+<br />
+<h4>@ViewBag.NomedoConteudo</h4>
+
+
+<h6> @ViewBag.NomedoCurso    >   @ViewBag.NomedoModulo    >   @ViewBag.NomedoConteudo</h6>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-7">
+            @foreach (var itemprincial in Model)
+            {
+                if (itemprincial.Id == ViewBag.IdConteudo)
+                {
+                    @Html.Raw(itemprincial.Texto_Embed)
+                }
+            }
+
+            <br /><br />
+            <<< GOSTOSÃO DO BACKEND, COLOCAR AQUI O BANNER DESTA AULA >>>
+            <br /><br />
+            <br /><br />
+            <<< GOSTOSÃO DO BACKEND, COLOCAR AQUI O TEXTO COMPLEMENTAR DESTA AULA >>>
+            <br /><br />
+            <br /><br />
+            <<< GOSTOSÃO DO BACKEND, COLOCAR AQUI OS LINKS DOS MATERIAIS DESTA AULA >>>
+            <br /><br />
+        </div>
+        <div class="col-sm-5">
+            <h6>> OUTRAS AULAS DESTE MÓDULO </h6>
+
+            <div class="list-group" style="width: 20rem;">
+
+                @foreach (var item in Model)
+                {
+                    <div class="d-flex flex-column mb-1">
+                        <div class="bd-highlight"> @Html.ActionLink(item.Nome, "AssistirAula", new { id = item.Id, idmodulo = item.ModulosId }, htmlAttributes: new { @class = "list-group-item" })</div>
+
+                    </div>
+                }
+            <div class="row">
+                    @Html.ActionLink("MARCAR AULA COMO CONCLUÍDA  ( X )", "AssistirAula", null, htmlAttributes: new { @class = "btn btn-outline-success h2" })
+                <div class="row">
+                    @Html.ActionLink("< AULA ANTERIOR ", "AssistirAula", new { id = ViewBag.IdConteudo, idmodulo = ViewBag.IdModulo, clickvoltar = true }, htmlAttributes: new { @class = "btn btn-outline-primary h2" })
+                    @Html.ActionLink("PRÓXIMA AULA > ", "AssistirAula", new  { id = ViewBag.IdConteudo, idmodulo = ViewBag.IdModulo, clickavancar = true }, htmlAttributes: new { @class = "btn btn-outline-primary h2" })
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-sm-7">
+            <br />
+            <label for="exampleFormControlTextarea1">Deixe seu comentário sobre esta aula :)</label>
+            <div class="row">
+                <textarea class="form-control" style="min-width:655px" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br /><br />
+<<< GOSOSÃO DO BACKEND, COLOCAR AQUI O MURAL DE COMENTÁRIOS DA AULA >>>
+<br /><br />
+
+
+@Html.ActionLink("< Voltar para Grade do Curso", "Index")
+
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")

@@ -1,0 +1,76 @@
+﻿@model Teos.Models.Cursos
+
+@{
+    ViewBag.Title = "Edit";
+}
+<br />
+<h4>Cursos</h4>
+
+
+@using (Html.BeginForm("Edit", "Cursos", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h6>Editar curso</h6>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.Id)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "col-md-5" })
+        <div class="col-md-12">
+            @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Promessa, htmlAttributes: new { @class = "col-md-5" })
+        <div class="col-md-12">
+            @Html.TextAreaFor(model => model.Promessa, new { htmlAttributes = new { @class = "form-control", style = "min-width:655px" } })
+            @Html.ValidationMessageFor(model => model.Promessa, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    
+    <div class="card" style="width: 18rem;">
+
+        @*@foreach (var item in Model.ArquivosCursos)
+        {
+            <img class="card-img-top" src="~/Arquivos/Cursos/@item.NomeArquivo" alt="@Model.Nome">
+        }*@
+
+        <label class="form-control">Alterar imagem</label>
+        <div class="col-md-12">
+            <div class="form-group">
+                <div class="file-upload-wrapper">
+                    <input type="file" class="file-upload" accept="image/*" id="arquivos" name="arquivos" />
+                </div>
+            </div>
+        </div>
+
+        @if (!String.IsNullOrEmpty(ViewBag.Messagem))
+        {
+        <label class="form-control alert-danger">@ViewBag.Messagem</label>
+        }
+
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-md-10">
+            <input type="submit" value="Salvar" class="btn btn-outline-dark" />
+        </div>
+    </div>
+</div>
+}
+
+
+
+<div>
+    @Html.ActionLink("< Voltar para Cursos", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

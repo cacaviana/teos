@@ -1,0 +1,57 @@
+﻿@model Teos.Models.Conteudos
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<br />
+<h4>Conteúdos</h4>
+
+<div>
+    <h6>Detalhes do conteúdo</h6>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Avaliacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Avaliacao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Texto_Embed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Texto_Embed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModulosId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModulosId)
+        </dd>
+
+        
+        @Html.AttributeEncode(Model.Texto_Embed)
+        @Html.Display(Model.Texto_Embed)
+        
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.Id }, new {@class ="btn btn-outline-dark" })
+    <br />
+    <br />
+    @Html.ActionLink("< Voltar para Conteúdos", "Index")
+</p>

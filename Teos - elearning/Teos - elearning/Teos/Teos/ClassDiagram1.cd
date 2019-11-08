@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Teos.Models.Credenciais" Collapsed="true">
+    <Position X="4.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAASAEAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAQA=</HashCode>
+      <FileName>Models\Credenciais.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Teos.Models.Arquivos" Collapsed="true">
+    <Position X="6.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACEAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Arquivos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Teos.Models.ArquivosCursos" Collapsed="true">
+    <Position X="7.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACQAAAAQAAgAAAAAAAAAAAAAAIAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ArquivosCursos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Teos.Models.Clientes" Collapsed="true">
+    <Position X="5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAEAAgA=</HashCode>
+      <FileName>Models\Clientes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Teos.Models.Conteudos" Collapsed="true">
+    <Position X="7.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAACAgMAACAAAABAAAAAAABQAACAAAAAAAAAAAEABAA=</HashCode>
+      <FileName>Models\Conteudos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Teos.Models.Cursos" Collapsed="true">
+    <Position X="1.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABCAAAAAAAAAAIAAAAAAAEQAAAAAAAAAAAAAAEECAA=</HashCode>
+      <FileName>Models\Cursos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Teos.Models.Turmas" Collapsed="true">
+    <Position X="0.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAQAIAAAAAAAAgAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Models\Turmas.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Teos.Models.Matriculas" Collapsed="true">
+    <Position X="4" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAIAAAAAAAEAAAAAAAAAAAAEAAQAAAA=</HashCode>
+      <FileName>Models\Matriculas.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Teos.Models.Modulos" Collapsed="true">
+    <Position X="3" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAQAJAAAAAAAAAAAAAACAAAAAAAAAAAEEAAA=</HashCode>
+      <FileName>Models\Modulos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

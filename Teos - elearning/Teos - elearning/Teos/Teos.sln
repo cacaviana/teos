@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.156
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Teos", "Teos\Teos.csproj", "{BD07B296-5710-44EF-A078-24535B509EBD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BD07B296-5710-44EF-A078-24535B509EBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD07B296-5710-44EF-A078-24535B509EBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD07B296-5710-44EF-A078-24535B509EBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD07B296-5710-44EF-A078-24535B509EBD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AEFB8F17-1C8A-40C0-8C1A-C928F0B0E0A3}
+	EndGlobalSection
+EndGlobal
